@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="381c3ab9-7954-423c-b166-933aa7ab506d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Role.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Role.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +159,7 @@
       <workItem from="1583135802851" duration="3857000" />
       <workItem from="1583309031032" duration="1095000" />
       <workItem from="1583913533867" duration="2204000" />
-      <workItem from="1584104827050" duration="1808000" />
+      <workItem from="1584104827050" duration="4400000" />
     </task>
     <servers />
   </component>
@@ -174,9 +176,14 @@
     </state>
     <state x="-1179" y="414" key="FileChooserDialogImpl/0.0.1920.1040/-1920.139.1920.1040@-1920.139.1920.1040" timestamp="1584106240402" />
     <state x="741" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1583144882912" />
-    <state x="795" y="443" key="NewPhpFileDialog" timestamp="1581323007969">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="-1190" y="473" key="NewPhpClassDialog" timestamp="1584108915290">
+      <screen x="-1920" y="139" width="1920" height="1040" />
     </state>
+    <state x="-1190" y="473" key="NewPhpClassDialog/0.0.1920.1040/-1920.139.1920.1040@-1920.139.1920.1040" timestamp="1584108915290" />
+    <state x="-1125" y="582" key="NewPhpFileDialog" timestamp="1584108924381">
+      <screen x="-1920" y="139" width="1920" height="1040" />
+    </state>
+    <state x="-1125" y="582" key="NewPhpFileDialog/0.0.1920.1040/-1920.139.1920.1040@-1920.139.1920.1040" timestamp="1584108924381" />
     <state x="795" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581323007969" />
     <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1581580612974">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -186,5 +193,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="619" y="242" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1581503368327" />
+    <state x="-1297" y="364" width="672" height="678" key="search.everywhere.popup" timestamp="1584107364603">
+      <screen x="-1920" y="139" width="1920" height="1040" />
+    </state>
+    <state x="-1297" y="364" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.139.1920.1040@-1920.139.1920.1040" timestamp="1584107364603" />
   </component>
 </project>
