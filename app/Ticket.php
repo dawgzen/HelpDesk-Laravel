@@ -12,7 +12,7 @@ class Ticket extends Model
     {
         return $this->belongsTo('App\User', "user_id");
     }
-    public function assigned_user(){
+    public function assigned_users(){
         return $this->belongsToMany("App\User");
     }
     public function status()
