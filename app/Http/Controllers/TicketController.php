@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class TicketController extends Controller
 {
@@ -12,7 +13,7 @@ class TicketController extends Controller
     }
 
     public function create(){
-
+        return view('ticket.create');
     }
     public function save(){
 
