@@ -13,17 +13,17 @@ class TicketController extends Controller
 
     public function create(){
 
-    };
+    }
     public function save(){
 
-    };
+    }
     public function index(){
 
-    };
+    }
     public function show($id){
 
-    };
+    }
     public function update($id){
 
-    };
+    }
 }
