@@ -25,3 +25,11 @@ Route::get('/dit/is/een/test', function () {
 Route::get('/test/{id}', 'TestController@show');
 
 Route::get('/test', 'TestController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
