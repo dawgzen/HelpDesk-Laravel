@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Status;
 use App\Ticket;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class TicketController extends Controller
@@ -29,9 +30,11 @@ class TicketController extends Controller
     $ticket->status()->associate($status);
     $request->user()->submitted_tickets()->save($ticket);
     return redirect ()->route('ticket_index')->with('success', 'Your ticket is saved...');
+
     }
     public function index(){
-
+    $tickets = Auth::user()->submitted_tickets()->orderBy('created_at','DESC')->get();
+    return view('ticket.index',['tickets' => $tickets]);
     }
     public function show($id){
 

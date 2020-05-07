@@ -17,10 +17,11 @@ class StatusTableSeeder extends Seeder
             ["Tweedelijn", "Wachtend op eerstelijns"] ,
             ["Tweedelijn_toegewezen", "Toegewezen op eerstelijns"] ,
             ["Afgehandeld", "Ticket is afgehandeld"] ,
+            ["UNASSIGNED", "unassigned"],
         ];
         foreach ($status as $stats) {
             DB::insert(
-                "INSERT INTO status(name, descrition)
+                "INSERT INTO statuses(name, description)
                       VALUES (:name , :description)"
                 ,
                 [
