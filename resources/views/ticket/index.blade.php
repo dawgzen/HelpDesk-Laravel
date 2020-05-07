@@ -22,7 +22,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">
                                         <a href="{{ route('ticket_show', ['id' => $ticket]) }}">
-                                        {{ $ticket->title }}
+                                            {{ $ticket->title }}
                                         </a>
                                     </h5>
                                     <p class="card-text">
@@ -34,7 +34,7 @@
                                 </div>
                             </div>
 
-                            @empty
+                        @empty
                             {{ __('No tickets available...') }}
 
                         @endforelse
