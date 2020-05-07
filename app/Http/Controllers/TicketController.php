@@ -37,7 +37,8 @@ class TicketController extends Controller
     return view('ticket.index',['tickets' => $tickets]);
     }
     public function show($id){
-
+        $ticket = Ticket::findOrFail($id);
+    return view('ticket.show',['ticket'=> $ticket]);
     }
     public function update($id){
 
