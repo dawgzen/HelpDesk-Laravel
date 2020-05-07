@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Ticket extends Model
 {
     protected $guarded = [];
+    private $title;
+    private $description;
 
     public function submitting_user()
     {
