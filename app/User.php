@@ -38,17 +38,23 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function role(){
+    public function role()
+    {
         return $this->belongsTo("App\Role");
     }
-    public function submitted_tickets () {
+
+    public function submitted_tickets()
+    {
         return $this->hasMany("App\Ticket");
     }
 
-    public function assigned_tickets () {
+    public function assigned_tickets()
+    {
         return $this->belongsToMany("App\Ticket");
     }
-    public function comments(){
+
+    public function comments()
+    {
         return $this->hasMany("App\Comment");
     }
 }
