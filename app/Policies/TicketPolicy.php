@@ -21,5 +21,10 @@ class TicketPolicy
     }
     public function show(User $user, Ticket $ticket){
         return $user->id == $ticket->user_id;
+
+    }
+
+    public function create(User $user){
+        return $user->Role() === 'customer';
     }
 }

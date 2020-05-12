@@ -14,6 +14,7 @@ class Status extends Model
     const SECONDLINE_ASSIGNED = "Toegewezen op eerstelijns";
     const DONE = "Ticket is afgehandeld";
 
+
     public function ticket()
     {
         return $this->hasMany('App\Ticket');
