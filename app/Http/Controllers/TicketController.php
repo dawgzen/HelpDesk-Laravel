@@ -26,7 +26,7 @@ class TicketController extends Controller
             'title' => 'required|max:191',
             'description' => 'required'
         ]);
-        $status = Status::where('name', Status::UNASSIGNED)->first();
+        $status = Status::where('name', Status::FIRSTLINE)->first();
         $ticket = new Ticket();
         $ticket->title = $request->title;
         $ticket->description = $request->description;

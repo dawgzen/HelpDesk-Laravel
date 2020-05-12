@@ -12,12 +12,11 @@ class StatusTableSeeder extends Seeder
     public function run()
     {
         $status =[
-            ["Eerstelijn", "Wachtend op eerstelijns"] ,
-            ["Eerstelijn_toegewezen", "toegewezen op eerstelijns"] ,
-            ["Tweedelijn", "Wachtend op eerstelijns"] ,
-            ["Tweedelijn_toegewezen", "Toegewezen op eerstelijns"] ,
-            ["Afgehandeld", "Ticket is afgehandeld"] ,
-            ["UNASSIGNED", "unassigned"],
+            ["FIRSTLINE", "Wachtend op eerstelijns"] ,
+            ["FIRSTLINE_ASSIGNED", "toegewezen op eerstelijns"] ,
+            ["SECONDLINE", "Wachtend op eerstelijns"] ,
+            ["SECONDLINE_ASSIGNED", "Toegewezen op eerstelijns"] ,
+            ["DONE", "Ticket is afgehandeld"] ,
         ];
         foreach ($status as $stats) {
             DB::insert(

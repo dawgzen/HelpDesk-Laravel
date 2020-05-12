@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Tickets') }}</div>
+                    <div class="card-header">{{ __('Ticket') }}</div>
                     <div class="card-body">
                         <div class="card mb-3">
                             <div class="card-header">
@@ -26,10 +26,13 @@
                                         {{session('success')}}
                                     </div>
                                 @endif
-
+                                <div class="card-footer">
+                                    {{ $ticket->status->description }}
+                                </div>
                                 @forelse ($ticket->comments as $comment)
                                     <p class="card-text" id="comments">
-                                        {{ $comment->created_at }}
+                                        {{ $comment->created_at->toFormattedDateString()}}
+                                        {{ $comment->user->name}}
                                         {{ $comment->contents }}
                                     </p>
                                 @empty
@@ -38,9 +41,7 @@
                                     </p>
                                 @endforelse
                             </div>
-                            <div class="card-footer">
-                                {{ $ticket->status->description }}
-                            </div>
+
                             <div class="card-footer">
                                 Create new comment
                             </div>
@@ -53,11 +54,12 @@
                                            class="col-md-4 col-form-label text-md-right">{{ __('comment content') }}</label>
                                     <div class="col-md-6">
                                     <textarea id="comment" type="text" class="form-control" name="contents">
+                                      {{ old('form')}}
                                     </textarea>
                                         @error('form')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
-                                    </span>
+                                        </span>
                                         @enderror
                                     </div>
                                 </div>
