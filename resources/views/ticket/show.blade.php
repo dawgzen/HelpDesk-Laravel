@@ -29,8 +29,9 @@
                                 <div class="card-footer">
                                     {{ $ticket->status->description }}
                                 </div>
+                                <p id="comments"></p>
                                 @forelse ($ticket->comments as $comment)
-                                    <p class="card-text" id="comments">
+                                    <p class="card-text">
                                         {{ $comment->created_at->toFormattedDateString()}}
                                         {{ $comment->user->name}}
                                         {{ $comment->contents }}
