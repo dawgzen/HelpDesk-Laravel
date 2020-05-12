@@ -45,6 +45,7 @@ class TicketController extends Controller
     public function show($id)
     {
         $ticket = Ticket::findOrFail($id);
+        $this->authorize('show', $ticket);
         return view('ticket.show', ['ticket' => $ticket]);
     }
 
