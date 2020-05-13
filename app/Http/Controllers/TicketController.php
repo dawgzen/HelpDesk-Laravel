@@ -17,6 +17,7 @@ class TicketController extends Controller
 
     public function create()
     {
+        $this->authorize('create', Ticket::class);
         return view('ticket.create');
     }
 
@@ -27,8 +28,7 @@ class TicketController extends Controller
             'description' => 'required'
         ]);
 
-        $status = Status::where('name', Status::FIRSTLINE)->first();
-        dd($status);
+        $status = Status::where('description', Status::FIRSTLINE)->first();
         $ticket = new Ticket();
         $ticket->title = $request->title;
         $ticket->description = $request->description;

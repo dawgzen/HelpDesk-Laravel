@@ -2,6 +2,7 @@
 
 namespace App\Policies;
 
+use App\Role;
 use App\Ticket;
 use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
@@ -24,7 +25,7 @@ class TicketPolicy
 
     }
 
-    public function create(User $user){
-        return $user->Role() === 'customer';
+    public function create(User $user) {
+        return $user->role->name == Role::CUSTOMER;
     }
 }
