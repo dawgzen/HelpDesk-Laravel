@@ -23,6 +23,7 @@ class TicketController extends Controller
 
     public function save(Request $request)
     {
+        $this->authorize('create', Ticket::class);
         $request->validate([
             'title' => 'required|max:191',
             'description' => 'required'
