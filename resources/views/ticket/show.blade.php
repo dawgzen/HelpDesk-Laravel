@@ -45,14 +45,12 @@
                                 @endforelse
                             </div>
 
-
+                            @can ('comment', $ticket)
                             <div class="card-footer">
                                 Create new comment
                             </div>
-
                             <form method="POST" id="form" action="{{ route('comment_save', ['id' => $ticket]) }}">
                                 @csrf
-
                                 <div class="form-group row">
                                     <label for="comment"
                                            class="col-md-4 col-form-label text-md-right">{{ __('comment content') }}</label>
@@ -75,6 +73,7 @@
                                     </div>
                                 </div>
                             </form>
+                                @endcan
                         </div>
                     </div>
                 </div>

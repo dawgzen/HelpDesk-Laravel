@@ -29,4 +29,9 @@ class Ticket extends Model
     {
         return $this->hasMany("App\Comment");
     }
+
+    public function isOpen()
+    {
+        return $this->belongsToMany("App\Status");
+    }
 }

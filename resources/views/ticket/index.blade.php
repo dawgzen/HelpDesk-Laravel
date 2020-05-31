@@ -22,11 +22,11 @@
                                 <div class="card-body">
                                     <h5 class="card-title">
                                         @can ('create', App\Ticket::class)
-                                            <a href="{{ route('ticket_show', ['id' => $assigned_ticket]) }}">
-                                                {{ $assigned_ticket->title }}
+                                            <a href="{{ route('ticket_show', ['id' => $ticket]) }}">
+                                                {{ $ticket->title }}
                                             </a>
                                         @else
-                                            <p>{{$assigned_ticket->title }}</p>
+                                            <p>{{$ticket->title }}</p>
                                         @endcan
                                     </h5>
                                     <p class="card-text">

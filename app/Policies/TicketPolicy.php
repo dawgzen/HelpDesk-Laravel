@@ -20,15 +20,25 @@ class TicketPolicy
     {
         //
     }
-    public function show(User $user, Ticket $ticket){
+
+    public function show(User $user, Ticket $ticket)
+    {
         return $user->is($ticket->submitting_user) || $user->role->name == Role::SECONDLINE || $user->role->name == Role::ADMIN || $user->role->name == Role::FIRSTLINE;
 
     }
 
-    public function create(User $user) {
+    public function create(User $user)
+    {
         return $user->role->name == Role::CUSTOMER;
     }
-    public function assign( User $user){
+
+    public function assign(User $user)
+    {
         return $user->role->name == Role::FIRSTLINE || $user->role->name == Role::SECONDLINE;
+    }
+
+    public function comment(User $user, Ticket $ticket)
+    {
+        return $user->is($ticket->submitting_user) && $ticket->isOpen() || $user->assigned_tickets->contains($ticket) && $ticket->isOpen();
     }
 }

@@ -41,7 +41,8 @@ class TicketController extends Controller
 
     }
 
-    public function index() {
+    public function index()
+    {
         $this->authorize('create', Ticket::class);
 
         $tickets = Auth::user()->submitted_tickets()->orderBy('created_at', 'DESC')->get();
@@ -49,7 +50,8 @@ class TicketController extends Controller
         return view('ticket.index', ['tickets' => $tickets]);
     }
 
-    public function assign(User $user) {
+    public function assign(User $user)
+    {
         return $user->role->name == Role::FIRSTLINE || $user->role->name == Role::SECONDLINE;
     }
 
@@ -60,11 +62,12 @@ class TicketController extends Controller
         return view('ticket.show', ['ticket' => $ticket]);
     }
 
-    public function index_helpdesk(){
-        $this->authorize('assign',Ticket::class);
+    public function index_helpdesk()
+    {
+        $this->authorize('assign', Ticket::class);
 
-        $assigned_tickets = Ticket::where('status_id' , '1')->get();
-        $unassigned_tickets = Ticket::where('status_id', '2')->get();
+        $assigned_tickets = Ticket::where('status_id', '2')->get();
+        $unassigned_tickets = Ticket::where('status_id', '1')->get();
 
         return \view(
             'ticket.index_helpdesk',
