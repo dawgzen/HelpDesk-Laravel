@@ -21,7 +21,7 @@ class TicketPolicy
         //
     }
     public function show(User $user, Ticket $ticket){
-        return $user->is($ticket->submitting_user);
+        return $user->is($ticket->submitting_user) || $user->role->name == Role::SECONDLINE || $user->role->name == Role::ADMIN || $user->role->name == Role::FIRSTLINE;
 
     }
 

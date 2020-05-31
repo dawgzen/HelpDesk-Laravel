@@ -21,9 +21,14 @@
 
                                 <div class="card-body">
                                     <h5 class="card-title">
+                                        @can ('assign', App\Ticket::class)
                                         <a href="{{ route('ticket_show', ['id' => $assigned_ticket]) }}">
                                             {{ $assigned_ticket->title }}
                                         </a>
+                                        @else
+                                            <p>{{$assigned_ticket->title }}</p>
+                                        @endcan
+
                                     </h5>
                                     <p class="card-text">
                                         {!! nl2br(e($assigned_ticket->description)) !!}
