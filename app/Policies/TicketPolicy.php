@@ -21,11 +21,14 @@ class TicketPolicy
         //
     }
     public function show(User $user, Ticket $ticket){
-        return $user->id == $ticket->user_id;
+        return $user->is($ticket->submitting_user);
 
     }
 
     public function create(User $user) {
         return $user->role->name == Role::CUSTOMER;
+    }
+    public function assign( User $user){
+        return $user->role->name == Role::FIRSTLINE || $user->role->name == Role::SECONDLINE;
     }
 }

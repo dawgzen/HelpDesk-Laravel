@@ -15,12 +15,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/dit/is/een/test', function () {
-    return view('test');
-});
-Route::get('/dit/is/een/test', function () {
-    return view('test2')->with('varnaam',config('database.default'));
-});
 
 Route::get('/test/{id}', 'TestController@show');
 
@@ -28,14 +22,29 @@ Route::get('/test', 'TestController@index');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')
+    ->name('home');
 
 Auth::routes();
 
+Route::get('ticket/create', 'TicketController@create')
+    ->name('ticket_create');
 
-Route::get('ticket/create', 'TicketController@create')->name('ticket_create');
-Route::post('ticket/save', 'TicketController@save')->name('ticket_save');
-Route::get('ticket/index','TicketController@index')->name('ticket_index');
-Route::get('ticket/{id}/show','TicketController@show')->name('ticket_show');
-Route::put('ticket/{id}/update', 'TicketController@update')->name('ticket_update');
-Route::post('ticket/{id}/comment/save', 'CommentController@save')->name('comment_save');
+Route::post('ticket/save', 'TicketController@save')
+    ->name('ticket_save');
+
+Route::get('ticket/index_customer','TicketController@index')
+    ->name('ticket_index');
+
+Route::get('ticket/{id}/show','TicketController@show')
+    ->name('ticket_show');
+
+Route::put('ticket/{id}/update', 'TicketController@update')
+    ->name('ticket_update');
+
+Route::get('/ticket/index_helpdesk', 'TicketController@index_helpdesk')
+    ->name('ticket_index_helpdesk');
+
+Route::post('ticket/{id}/comment/save', 'CommentController@save')
+    ->name('comment_save');
+

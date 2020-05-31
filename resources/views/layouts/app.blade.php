@@ -40,10 +40,16 @@
                             <li class="nav-item">
                                 <a href="{{ route('ticket_create') }}" class="nav-link">{{ __('Create ticket') }}</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('ticket_index') }}">{{ __('Existing Tickets') }}</a>
+                            </li>
                         @endcan
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('ticket_index') }}">{{ __('Existing Tickets') }}</a>
-                        </li>
+                            @can ('assign', App\Ticket::class)
+                                <li class="nav-item">
+                                    <a href="{{ route('ticket_index_helpdesk') }}" class="nav-link">{{ __('Helpdesk index') }}</a>
+                                </li>
+                            @endcan
+
                     @endauth
                 </ul>
 

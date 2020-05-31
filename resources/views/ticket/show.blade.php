@@ -21,15 +21,17 @@
                                     {!! nl2br(e($ticket->description)) !!}
 
                                 </p>
+                                <div class="card-footer">
+                                    {{ $ticket->status->description }}
+                                </div>
                                 @if (session('success'))
                                     <div class="alert alert-success">
                                         {{session('success')}}
                                     </div>
                                 @endif
-                                <div class="card-footer">
-                                    {{ $ticket->status->description }}
-                                </div>
+
                                 <p id="comments"></p>
+
                                 @forelse ($ticket->comments as $comment)
                                     <p class="card-text">
                                         {{ $comment->created_at->toFormattedDateString()}}
@@ -42,6 +44,7 @@
                                     </p>
                                 @endforelse
                             </div>
+
 
                             <div class="card-footer">
                                 Create new comment
@@ -57,7 +60,7 @@
                                     <textarea id="comment" type="text" class="form-control" name="contents">
                                       {{ old('form')}}
                                     </textarea>
-                                        @error('form')
+                                        @error('comment')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                         </span>
