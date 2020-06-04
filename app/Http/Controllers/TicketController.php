@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Role;
 use App\Status;
-use App\Tickets;
-use App\Users;
+use App\Ticket;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
@@ -19,20 +19,20 @@ class TicketController extends Controller
 
     public function create()
     {
-        $this->authorize('create', Tickets::class);
+        $this->authorize('create', Ticket::class);
         return view('ticket.create');
     }
 
     public function save(Request $request)
     {
-        $this->authorize('create', Tickets::class);
+        $this->authorize('create', Ticket::class);
         $request->validate([
             'title' => 'required|max:191',
             'description' => 'required'
         ]);
 
-        $status = Status::where('description', Status::FIRSTLINE)->first();
-        $ticket = new Tickets();
+        $status = Status::where('name', Status::FIRSTLINE)->first();
+        $ticket = new Ticket();
         $ticket->title = $request->title;
         $ticket->description = $request->description;
         $ticket->status()->associate($status);
@@ -43,7 +43,7 @@ class TicketController extends Controller
 
     public function close($id)
     {
-        $ticket = Tickets::findOrFail($id);
+        $ticket = Ticket::findOrFail($id);
         $this->authorize('close', $ticket);
         $status = Status::where('description', Status::DONE)->first();
 
@@ -52,21 +52,21 @@ class TicketController extends Controller
 
     public function index()
     {
-        $this->authorize('create', Tickets::class);
+        $this->authorize('create', Ticket::class);
 
         $tickets = Auth::user()->submitted_tickets()->orderBy('created_at', 'DESC')->get();
 
         return view('ticket.index', ['tickets' => $tickets]);
     }
 
-    public function assign(Users $user)
+    public function assign(User $user)
     {
         return $user->role->name == Role::FIRSTLINE || $user->role->name == Role::SECONDLINE;
     }
 
     public function show($id)
     {
-        $ticket = Tickets::findOrFail($id);
+        $ticket = Ticket::findOrFail($id);
         $this->authorize('show', $ticket);
         return view('ticket.show', ['ticket' => $ticket]);
     }
@@ -74,12 +74,19 @@ class TicketController extends Controller
 
     public function index_helpdesk()
     {
-        $this->authorize('assign', Tickets::class);
+        $this->authorize('assign', Ticket::class);
 
-        $assigned_tickets = Tickets::where('status_id', '2')->get();
-        $unassigned_tickets = Tickets::where('status_id', '1')->get();
+        $assigned_tickets = Auth::user()->assigned_tickets;
 
-        return \view(
+        if(Auth::user()->role->name == Role::FIRSTLINE){
+            $status = Status::where('name', Status::FIRSTLINE)->first();
+
+        }
+        else if(Auth::user()->role->name == Role::SECONDLINE){
+            $status = Status::where('name', Status::SECONDLINE)->first();
+        }
+        $unassigned_tickets = $status->tickets;
+        return view(
             'ticket.index_helpdesk',
             [
                 'assigned_tickets' => $assigned_tickets,

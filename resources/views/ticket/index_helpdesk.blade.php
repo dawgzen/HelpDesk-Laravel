@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card">
-                    <div class="card-header">{{ __('Tickets') }}</div>
+                    <div class="card-header">{{ __('Ticket') }}</div>
                     <div class="card-body">
                         @if (session('success'))
                             <div class="alert alert-succes">
@@ -21,7 +21,7 @@
 
                                 <div class="card-body">
                                     <h5 class="card-title">
-                                        @can ('assign', App\Tickets::class)
+                                        @can ('show', $assigned_ticket)
                                         <a href="{{ route('ticket_show', ['id' => $assigned_ticket]) }}">
                                             {{ $assigned_ticket->title }}
                                         </a>
@@ -48,7 +48,7 @@
 
             <div class="col-md-6">
                 <div class="card">
-                    <div class="card-header">{{ __('Tickets') }}</div>
+                    <div class="card-header">{{ __('Ticket') }}</div>
                     <div class="card-body">
                         @if (session('success'))
                             <div class="alert alert-succes">
@@ -64,9 +64,13 @@
 
                                 <div class="card-body">
                                     <h5 class="card-title">
+                                        @can ('show', $unassigned_ticket)
                                         <a href="{{ route('ticket_show', ['id' => $unassigned_ticket]) }}">
                                             {{ $unassigned_ticket->title }}
                                         </a>
+                                            @else
+                                            {{ $unassigned_ticket->title }}
+                                        @endcan
                                     </h5>
                                     <p class="card-text">
                                         {!! nl2br(e($unassigned_ticket->description)) !!}

@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Tickets extends Model
+class Ticket extends Model
 {
     protected $guarded = [];
     private $title;
@@ -12,12 +12,12 @@ class Tickets extends Model
 
     public function submitting_user()
     {
-        return $this->belongsTo('App\Users', "users_id");
+        return $this->belongsTo('App\User', "user_id");
     }
 
     public function assigned_users()
     {
-        return $this->belongsToMany("App\Users");
+        return $this->belongsToMany("App\User");
     }
 
     public function status()

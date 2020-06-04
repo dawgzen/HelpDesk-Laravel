@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Tickets') }}</div>
+                    <div class="card-header">{{ __('Ticket') }}</div>
                     <div class="card-body">
                         @if (session('success'))
                             <div class="alert alert-succes">
@@ -21,7 +21,7 @@
 
                                 <div class="card-body">
                                     <h5 class="card-title">
-                                        @can ('create', App\Tickets::class)
+                                        @can ('create', App\Ticket::class)
                                             <a href="{{ route('ticket_show', ['id' => $ticket]) }}">
                                                 {{ $ticket->title }}
                                             </a>

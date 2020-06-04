@@ -3,8 +3,8 @@
 namespace App\Policies;
 
 use App\Role;
-use App\Tickets;
-use App\Users;
+use App\Ticket;
+use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class TicketPolicy
@@ -21,28 +21,29 @@ class TicketPolicy
         //
     }
 
-    public function show(Users $user, Tickets $ticket)
+    public function show(User $user, Ticket $ticket)
     {
         return $user->is($ticket->submitting_user) || $user->role->name == Role::SECONDLINE || $user->role->name == Role::FIRSTLINE;
 
     }
 
-    public function create(Users $user)
+    public function create(User $user)
     {
         return $user->role->name == Role::CUSTOMER;
     }
 
-    public function assign(Users $user)
+    public function assign(User $user)
     {
         return $user->role->name == Role::FIRSTLINE || $user->role->name == Role::SECONDLINE;
     }
 
-    public function comment(Users $user, Tickets $ticket)
+    public function comment(User $user, Ticket $ticket)
     {
-        return $user->is($ticket->submitting_user) && $ticket->isOpen() || $user->assigned_tickets->contains($ticket) && $ticket->isOpen();
+        return ($user->is($ticket->submitting_user) || $user->assigned_tickets->contains($ticket)) && $ticket->isOpen();
     }
 
-    public function close(Users $user , Tickets $ticket){
+    public function close(User $user, Ticket $ticket)
+    {
         return $user->is($ticket->submitting_user) && $ticket->isOpen() || $user->assigned_tickets->contains($ticket) && $ticket->isOpen();
     }
 }

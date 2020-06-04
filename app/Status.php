@@ -14,6 +14,6 @@ class Status extends Model
 
     public function tickets()
     {
-        return $this->hasMany('App\Tickets');
+        return $this->hasMany('App\Ticket');
     }
 }

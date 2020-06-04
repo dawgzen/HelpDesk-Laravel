@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 
-class Users extends Authenticatable
+class User extends Authenticatable
 {
     use Notifiable;
 
@@ -45,12 +45,12 @@ class Users extends Authenticatable
 
     public function submitted_tickets()
     {
-        return $this->hasMany("App\Tickets");
+        return $this->hasMany("App\Ticket");
     }
 
     public function assigned_tickets()
     {
-        return $this->belongsToMany("App\Tickets");
+        return $this->belongsToMany("App\Ticket");
     }
 
     public function comments()

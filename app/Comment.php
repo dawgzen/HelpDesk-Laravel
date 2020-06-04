@@ -8,11 +8,11 @@ class Comment extends Model
 {
     public function user()
     {
-        return $this->belongsTo("App\Users");
+        return $this->belongsTo("App\User");
     }
 
     public function ticket()
     {
-        return $this->belongsTo('App\Tickets');
+        return $this->belongsTo('App\Ticket');
     }
 }

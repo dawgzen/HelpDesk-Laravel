@@ -36,15 +36,15 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
                     @auth
-                        @can ('create', App\Tickets::class)
+                        @can ('create', App\Ticket::class)
                             <li class="nav-item">
                                 <a href="{{ route('ticket_create') }}" class="nav-link">{{ __('Create ticket') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('ticket_index') }}">{{ __('Existing Tickets') }}</a>
+                                <a class="nav-link" href="{{ route('ticket_index') }}">{{ __('Ticket') }}</a>
                             </li>
                         @endcan
-                            @can ('assign', App\Tickets::class)
+                            @can ('assign', App\Ticket::class)
                                 <li class="nav-item">
                                     <a href="{{ route('ticket_index_helpdesk') }}" class="nav-link">{{ __('Helpdesk index') }}</a>
                                 </li>
