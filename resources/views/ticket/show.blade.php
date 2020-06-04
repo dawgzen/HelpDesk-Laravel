@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Ticket') }}</div>
+                    <div class="card-header">{{ __('Tickets') }}</div>
                     <div class="card-body">
                         <div class="card mb-3">
                             <div class="card-header">

@@ -21,7 +21,7 @@
 
                                 <div class="card-body">
                                     <h5 class="card-title">
-                                        @can ('assign', App\Ticket::class)
+                                        @can ('assign', App\Tickets::class)
                                         <a href="{{ route('ticket_show', ['id' => $assigned_ticket]) }}">
                                             {{ $assigned_ticket->title }}
                                         </a>
@@ -78,7 +78,6 @@
                             </div>
                         @empty
                             {{ __('No tickets available...') }}
-
                         @endforelse
                     </div>
                 </div>

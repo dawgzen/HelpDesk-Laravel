@@ -11,8 +11,8 @@ class Role extends Model
     const SECONDLINE = "second_line";
     const ADMIN = "admin";
 
-    public function user()
+    public function users()
     {
-        return $this->hasMany("App\user");
+        return $this->hasMany("App\Users");
     }
 }

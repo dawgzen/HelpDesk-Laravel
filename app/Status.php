@@ -6,17 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Status extends Model
 {
-
-
     const FIRSTLINE = 'Wachtend op eerstelijns';
     const FIRSTLINE_ASSIGNED =  "toegewezen op eerstelijns";
-    const SECONDLINE = "Wachtend op eerstelijns";
-    const SECONDLINE_ASSIGNED = "Toegewezen op eerstelijns";
+    const SECONDLINE = "Wachtend op tweedelijns";
+    const SECONDLINE_ASSIGNED = "Toegewezen op tweedelijns";
     const DONE = "Ticket is afgehandeld";
 
-
-    public function ticket()
+    public function tickets()
     {
-        return $this->hasMany('App\Ticket');
+        return $this->hasMany('App\Tickets');
     }
 }

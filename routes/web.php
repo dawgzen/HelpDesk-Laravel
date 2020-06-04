@@ -48,3 +48,5 @@ Route::get('/ticket/index_helpdesk', 'TicketController@index_helpdesk')
 Route::post('ticket/{id}/comment/save', 'CommentController@save')
     ->name('comment_save');
 
+Route::put('ticket/{id}/ticket/close', 'TicketController@close')
+    ->name('ticket_close');

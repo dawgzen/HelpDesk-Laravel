@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
+use App\Users;
 use Illuminate\Support\Facades\DB;
 
 class TestController extends Controller

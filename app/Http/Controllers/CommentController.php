@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
-use App\Ticket;
+use App\Tickets;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
@@ -16,7 +16,7 @@ class CommentController extends Controller
 
     public function save(Request $request, $ticket_id)
     {
-        $ticket = Ticket::findOrFail($ticket_id);
+        $ticket = Tickets::findOrFail($ticket_id);
 
         $this->authorize('comment',$ticket);
 
