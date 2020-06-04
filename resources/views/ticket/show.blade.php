@@ -73,6 +73,10 @@
                                     </div>
                                 </div>
                             </form>
+                                @else
+                                <div class="col-md-6 offset-md-4">
+                                <p>You cant comment on this boyo</p>
+                                </div>
                                 @endcan
                         </div>
                     </div>

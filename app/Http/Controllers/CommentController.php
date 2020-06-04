@@ -18,7 +18,7 @@ class CommentController extends Controller
     {
         $ticket = Ticket::findOrFail($ticket_id);
 
-        $this->authorize('comment',$ticket);
+        $this->authorize('comment', $ticket);
 
         $validator = Validator::make(
             $request->all(),

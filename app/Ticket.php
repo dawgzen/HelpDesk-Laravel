@@ -30,8 +30,9 @@ class Ticket extends Model
         return $this->hasMany("App\Comment");
     }
 
-    public function isOpen()
+    public function isOpen($id)
     {
-        return $this->belongsToMany("App\Status");
+        $ticket = Ticket::findOrFail($id);
+        return $ticket->status->name != Status::DONE;
     }
 }

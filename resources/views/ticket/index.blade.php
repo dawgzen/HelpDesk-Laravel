@@ -21,7 +21,7 @@
 
                                 <div class="card-body">
                                     <h5 class="card-title">
-                                        @can ('create', App\Ticket::class)
+                                        @can ('show', $ticket)
                                             <a href="{{ route('ticket_show', ['id' => $ticket]) }}">
                                                 {{ $ticket->title }}
                                             </a>
