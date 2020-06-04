@@ -80,19 +80,19 @@ class TicketController extends Controller
 
         if(Auth::user()->role->name == Role::FIRSTLINE){
             $status = Status::where('name', Status::FIRSTLINE)->first();
-
         }
         else if(Auth::user()->role->name == Role::SECONDLINE){
             $status = Status::where('name', Status::SECONDLINE)->first();
         }
+
         $unassigned_tickets = $status->tickets;
         return view(
+
             'ticket.index_helpdesk',
             [
                 'assigned_tickets' => $assigned_tickets,
                 'unassigned_tickets' => $unassigned_tickets
             ]
         );
-
     }
 }

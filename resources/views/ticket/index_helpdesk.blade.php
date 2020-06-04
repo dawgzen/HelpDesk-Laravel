@@ -40,7 +40,6 @@
                             </div>
                         @empty
                             {{ __('No tickets available...') }}
-
                         @endforelse
                     </div>
                 </div>

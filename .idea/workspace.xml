@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="381c3ab9-7954-423c-b166-933aa7ab506d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CommentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CommentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Policies/TicketPolicy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policies/TicketPolicy.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Ticket.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Ticket.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/ticket/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ticket/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/ticket/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ticket/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/ticket/index_helpdesk.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ticket/index_helpdesk.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -181,7 +177,7 @@
       <workItem from="1590931094042" duration="5354000" />
       <workItem from="1591121703830" duration="772000" />
       <workItem from="1591175146117" duration="57000" />
-      <workItem from="1591265185008" duration="18067000" />
+      <workItem from="1591265185008" duration="19010000" />
     </task>
     <servers />
   </component>
