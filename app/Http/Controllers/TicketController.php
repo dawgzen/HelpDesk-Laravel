@@ -73,6 +73,21 @@ class TicketController extends Controller
         return view('ticket.show', ['ticket' => $ticket]);
     }
 
+    public function claim($id)
+    {
+        $ticket = Ticket::findOrFail($id);
+        $this->authorize('claim', $ticket);
+        if ($ticket->status->name == Status::FIRSTLINE) {
+            $status = Status::where('name', Status::FIRSTLINE)->first();
+        }   else if ($ticket->status->name == Status::SECONDLINE) {
+            $status = Status::where('name', Status::SECONDLINE)->first();
+        }
+        $ticket->status()->associate($status);
+        $ticket->save();
+        Auth::User()->assigned_tickets()->attach($ticket);
+        return redirect()->back()->with('success', 'Ticket claimed');
+    }
+
 
     public function index_helpdesk()
     {

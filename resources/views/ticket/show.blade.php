@@ -44,6 +44,13 @@
                                     </p>
                                 @endforelse
                             </div>
+                            <form action="{{ route('ticket_claim', ['id' => $ticket]) }}" method="POST">
+                                <button>
+                                    Claim ticket
+                                </button>
+                                @method('PUT')
+                                @csrf
+                            </form>
 
                             @can ('comment', $ticket)
                                 <form action="{{ route('ticket_close', ['id' => $ticket]) }}" method="POST">
@@ -53,6 +60,7 @@
                                     @method('PUT')
                                     @csrf
                                 </form>
+
                                 <div class="card-footer">
                                     Create new comment
                                 </div>

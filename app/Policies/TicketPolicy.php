@@ -3,6 +3,7 @@
 namespace App\Policies;
 
 use App\Role;
+use App\Status;
 use App\Ticket;
 use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
@@ -45,5 +46,11 @@ class TicketPolicy
     public function close(User $user, Ticket $ticket)
     {
         return ($user->is($ticket->submitting_user) || $user->assigned_tickets->contains($ticket)) && $ticket->isOpen();
+    }
+    public function claim(User $user, Ticket $ticket) {
+        return (
+                $user->role->name == Role::FIRSTLINE && $ticket->status->name == Status::FIRSTLINE
+            ) || (
+                $user->role->name == Role::SECONDLINE && $ticket->status->name == Status::SECONDLINE);
     }
 }

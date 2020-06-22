@@ -50,3 +50,6 @@ Route::post('ticket/{id}/comment/save', 'CommentController@save')
 
 Route::put('ticket/{id}/ticket/close', 'TicketController@close')
     ->name('ticket_close');
+
+Route::put('ticket/{id}/ticket/claim', 'TicketController@claim')
+    ->name('ticket_claim');
