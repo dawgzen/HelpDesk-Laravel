@@ -45,9 +45,11 @@ class TicketController extends Controller
     {
         $ticket = Ticket::findOrFail($id);
         $this->authorize('close', $ticket);
-        $status = Status::where('description', Status::DONE)->first();
-
-        return redirect()->route('ticket_index')->with('success', 'Your ticket is now closed...');
+        $status = Status::where('name', Status::DONE)->first();
+        $ticket->status()->associate($status);
+//        $this->user()->submitted_tickets()->save($ticket);
+        $ticket->save();
+        return redirect()->back()->with('success', __('Your ticket is now closed...'));
     }
 
     public function index()

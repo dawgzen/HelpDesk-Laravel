@@ -46,6 +46,13 @@
                             </div>
 
                             @can ('comment', $ticket)
+                                <form action="{{ route('ticket_close', ['id' => $ticket]) }}" method="POST">
+                                    <button>
+                                        Close ticket
+                                    </button>
+                                    @method('PUT')
+                                    @csrf
+                                </form>
                                 <div class="card-footer">
                                     Create new comment
                                 </div>

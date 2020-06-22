@@ -44,6 +44,6 @@ class TicketPolicy
 
     public function close(User $user, Ticket $ticket)
     {
-        return $user->is($ticket->submitting_user) && $ticket->isOpen() || $user->assigned_tickets->contains($ticket) && $ticket->isOpen();
+        return ($user->is($ticket->submitting_user) || $user->assigned_tickets->contains($ticket)) && $ticket->isOpen();
     }
 }

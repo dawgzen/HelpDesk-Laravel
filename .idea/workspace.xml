@@ -4,9 +4,8 @@
     <list default="true" id="381c3ab9-7954-423c-b166-933aa7ab506d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TicketController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TicketController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Status.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Status.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/ticket/index_helpdesk.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ticket/index_helpdesk.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Policies/TicketPolicy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policies/TicketPolicy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Ticket.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Ticket.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/ticket/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ticket/show.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -183,6 +182,7 @@
       <workItem from="1591175146117" duration="57000" />
       <workItem from="1591265185008" duration="19652000" />
       <workItem from="1591351638155" duration="95000" />
+      <workItem from="1592824290930" duration="5393000" />
     </task>
     <servers />
   </component>
