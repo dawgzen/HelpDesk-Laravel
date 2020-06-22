@@ -44,11 +44,12 @@
                                 <a class="nav-link" href="{{ route('ticket_index') }}">{{ __('Ticket') }}</a>
                             </li>
                         @endcan
-                            @can ('assign', App\Ticket::class)
-                                <li class="nav-item">
-                                    <a href="{{ route('ticket_index_helpdesk') }}" class="nav-link">{{ __('Helpdesk index') }}</a>
-                                </li>
-                            @endcan
+                        @can ('assign', App\Ticket::class)
+                            <li class="nav-item">
+                                <a href="{{ route('ticket_index_helpdesk') }}"
+                                   class="nav-link">{{ __('Helpdesk index') }}</a>
+                            </li>
+                        @endcan
 
                     @endauth
                 </ul>

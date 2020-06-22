@@ -22,9 +22,9 @@
                                 <div class="card-body">
                                     <h5 class="card-title">
                                         @can ('show', $assigned_ticket)
-                                        <a href="{{ route('ticket_show', ['id' => $assigned_ticket]) }}">
-                                            {{ $assigned_ticket->title }}
-                                        </a>
+                                            <a href="{{ route('ticket_show', ['id' => $assigned_ticket]) }}">
+                                                {{ $assigned_ticket->title }}
+                                            </a>
                                         @else
                                             <p>{{$assigned_ticket->title }}</p>
                                         @endcan
@@ -64,10 +64,10 @@
                                 <div class="card-body">
                                     <h5 class="card-title">
                                         @can ('show', $unassigned_ticket)
-                                        <a href="{{ route('ticket_show', ['id' => $unassigned_ticket]) }}">
-                                            {{ $unassigned_ticket->title }}
-                                        </a>
-                                            @else
+                                            <a href="{{ route('ticket_show', ['id' => $unassigned_ticket]) }}">
+                                                {{ $unassigned_ticket->title }}
+                                            </a>
+                                        @else
                                             {{ $unassigned_ticket->title }}
                                         @endcan
                                     </h5>

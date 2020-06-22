@@ -46,38 +46,38 @@
                             </div>
 
                             @can ('comment', $ticket)
-                            <div class="card-footer">
-                                Create new comment
-                            </div>
-                            <form method="POST" id="form" action="{{ route('comment_save', ['id' => $ticket]) }}">
-                                @csrf
-                                <div class="form-group row">
-                                    <label for="comment"
-                                           class="col-md-4 col-form-label text-md-right">{{ __('comment content') }}</label>
-                                    <div class="col-md-6">
+                                <div class="card-footer">
+                                    Create new comment
+                                </div>
+                                <form method="POST" id="form" action="{{ route('comment_save', ['id' => $ticket]) }}">
+                                    @csrf
+                                    <div class="form-group row">
+                                        <label for="comment"
+                                               class="col-md-4 col-form-label text-md-right">{{ __('comment content') }}</label>
+                                        <div class="col-md-6">
                                     <textarea id="comment" type="text" class="form-control" name="contents">
                                       {{ old('form')}}
                                     </textarea>
-                                        @error('comment')
-                                        <span class="invalid-feedback" role="alert">
+                                            @error('comment')
+                                            <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                         </span>
-                                        @enderror
+                                            @enderror
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group row mb-0">
-                                    <div class="col-md-6 offset-md-4">
-                                        <button type="submit" class="btn btn-primary">
-                                            {{ __('Save Comment') }}
-                                        </button>
+                                    <div class="form-group row mb-0">
+                                        <div class="col-md-6 offset-md-4">
+                                            <button type="submit" class="btn btn-primary">
+                                                {{ __('Save Comment') }}
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
-                            </form>
-                                @else
+                                </form>
+                            @else
                                 <div class="col-md-6 offset-md-4">
-                                <p>You cant comment on this boyo</p>
+                                    <p>You cant comment on this boyo</p>
                                 </div>
-                                @endcan
+                            @endcan
                         </div>
                     </div>
                 </div>

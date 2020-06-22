@@ -78,10 +78,9 @@ class TicketController extends Controller
 
         $assigned_tickets = Auth::user()->assigned_tickets;
 
-        if(Auth::user()->role->name == Role::FIRSTLINE){
+        if (Auth::user()->role->name == Role::FIRSTLINE) {
             $status = Status::where('name', Status::FIRSTLINE)->first();
-        }
-        else if(Auth::user()->role->name == Role::SECONDLINE){
+        } else if (Auth::user()->role->name == Role::SECONDLINE) {
             $status = Status::where('name', Status::SECONDLINE)->first();
         }
 
