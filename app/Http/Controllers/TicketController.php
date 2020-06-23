@@ -79,7 +79,7 @@ class TicketController extends Controller
         $this->authorize('claim', $ticket);
         if ($ticket->status->name == Status::FIRSTLINE) {
             $status = Status::where('name', Status::FIRSTLINE_ASSIGNED)->first();
-        }   else if ($ticket->status->name == Status::SECONDLINE) {
+        } else if ($ticket->status->name == Status::SECONDLINE) {
             $status = Status::where('name', Status::SECONDLINE_ASSIGNED)->first();
         }
         $ticket->status()->associate($status);
@@ -94,7 +94,7 @@ class TicketController extends Controller
         $this->authorize('free', $ticket);
         if ($ticket->status->name == Status::FIRSTLINE_ASSIGNED) {
             $status = Status::where('name', Status::FIRSTLINE)->first();
-        }   else if ($ticket->status->name == Status::SECONDLINE_ASSIGNED) {
+        } else if ($ticket->status->name == Status::SECONDLINE_ASSIGNED) {
             $status = Status::where('name', Status::SECONDLINE)->first();
         }
         $ticket->status()->associate($status);
@@ -103,6 +103,24 @@ class TicketController extends Controller
         return redirect()->back()->with('success', 'Ticket freed');
     }
 
+    public function escalate($id){
+        $ticket = Ticket::findOrFail($id);
+        $this->authorize('escalate', $ticket);
+        $status = Status::where('name', Status::SECONDLINE)->first();
+        $ticket->status()->associate($status);
+        $ticket->save();
+        return redirect()->back()->with('success', 'Ticket escalated');
+    }
+
+    public function deescalate($id){
+        $ticket = Ticket::findOrFail($id);
+        $this->authorize('escalate', $ticket);
+        $status = Status::where('name', Status::FIRSTLINE_ASSIGNED)->first();
+        $ticket->status()->associate($status);
+        $ticket->save();
+        Auth::User()->assigned_tickets()->detach($ticket);
+        return redirect()->back()->with('success', 'Ticket deescalated');
+    }
 
     public function index_helpdesk()
     {

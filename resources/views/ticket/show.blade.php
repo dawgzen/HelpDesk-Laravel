@@ -61,8 +61,8 @@
                                 </button>
                                 @method('PUT')
                                 @csrf
-                                @endcan
                             </form>
+                            @endcan
 
                                 @can('free', $ticket)
                                 <form action="{{ route('ticket_free', ['id' => $ticket]) }}" method="POST">
@@ -71,11 +71,31 @@
                                     </button>
                                     @method('PUT')
                                     @csrf
-                                    @endcan
                                 </form>
+                                @endcan
+
+                            @can('escalate', $ticket)
+                                <form action="{{ route('ticket_escalate', ['id' => $ticket]) }}" method="POST">
+                                    <button>
+                                        escalate ticket
+                                    </button>
+                                    @method('PUT')
+                                    @csrf
+                                </form>
+                            @endcan
+
+                            @can('deescalate', $ticket)
+                                <form action="{{ route('ticket_deescalate', ['id' => $ticket]) }}" method="POST">
+                                    <button>
+                                        deescalate ticket
+                                    </button>
+                                    @method('PUT')
+                                    @csrf
+                                </form>
+                            @endcan
+
+
                             @can ('comment', $ticket)
-
-
 
                                 <div class="card-footer">
                                     Create new comment

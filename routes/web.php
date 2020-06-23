@@ -56,3 +56,9 @@ Route::put('ticket/{id}/ticket/claim', 'TicketController@claim')
 
 Route::put('ticket/{id}/ticket/free', 'TicketController@free')
     ->name('ticket_free');
+
+Route::put('ticket/{id}/ticket/escalate', 'TicketController@escalate')
+    ->name('ticket_escalate');
+
+Route::put('ticket/{id}/ticket/deescalate', 'TicketController@deescalate')
+    ->name('ticket_deescalate');
