@@ -45,7 +45,7 @@
                                 @endforelse
                             </div>
                             @can('claim', $ticket)
-                            <form action="{{ route('ticket_claim', ['id' => $ticket]) }}" method="POST">
+                            <form method="POST" action="{{ route('ticket_claim', ['id' => $ticket]) }}">
                                 <button>
                                     Claim ticket
                                 </button>
@@ -55,7 +55,7 @@
                             @endcan
 
                             @can('close', $ticket)
-                            <form action="{{ route('ticket_close', ['id' => $ticket]) }}" method="POST">
+                            <form method="POST" action="{{ route('ticket_close', ['id' => $ticket]) }}" >
                                 <button>
                                     Close ticket
                                 </button>
@@ -65,7 +65,7 @@
                             @endcan
 
                                 @can('free', $ticket)
-                                <form action="{{ route('ticket_free', ['id' => $ticket]) }}" method="POST">
+                                <form method="POST" action="{{ route('ticket_free', ['id' => $ticket]) }}">
                                     <button>
                                         Free ticket
                                     </button>
@@ -75,7 +75,7 @@
                                 @endcan
 
                             @can('escalate', $ticket)
-                                <form action="{{ route('ticket_escalate', ['id' => $ticket]) }}" method="POST">
+                                <form  method="POST" action="{{ route('ticket_escalate', ['id' => $ticket]) }}">
                                     <button>
                                         escalate ticket
                                     </button>
@@ -85,12 +85,21 @@
                             @endcan
 
                             @can('deescalate', $ticket)
-                                <form action="{{ route('ticket_deescalate', ['id' => $ticket]) }}" method="POST">
+                                <form method="POST" action="{{ route('ticket_deescalate', ['id' => $ticket]) }}">
                                     <button>
                                         deescalate ticket
                                     </button>
                                     @method('PUT')
                                     @csrf
+                                </form>
+                            @endcan
+
+                            @can('delegate', $ticket)
+                                <form action="#" class="d-inline">
+                                    <button type="button" class="btn btn-primary"
+                                    data-toggle="modal" data-target="#delegateModal">
+                                        {{__('Delegate')}}
+                                    </button>
                                 </form>
                             @endcan
 
@@ -135,4 +144,31 @@
             </div>
         </div>
     </div>
+    @can('delegate', $ticket)
+        <div class="modal fade" id="delegateModal" tabindex="-1" role="dialog"
+        aria-labelledby="Delegate ticket" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Delegate ticket</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                            <form method="POST" id="form" action="{{ route('ticket_delegate', $ticket) }}">
+                            @csrf
+                            @method('PUT')
+                            <select name="worker_id" id="worker_id">
+                            @foreach($delegatable_users as $delegatable_user)
+                                    <option value="{{$delegatable_user->id}}">{{$delegatable_user->name}}</option>
+                            @endforeach
+                            </select>
+                            <button type="submit">Delegate</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endcan
 @endsection

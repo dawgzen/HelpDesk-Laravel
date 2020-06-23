@@ -72,4 +72,10 @@ class TicketPolicy
                 $user->role->name == Role::SECONDLINE && $ticket->status->name == Status::SECONDLINE_ASSIGNED);
     }
 
+    public function delegate(User $user, Ticket $ticket)
+    {
+        return ($user->assigned_tickets->contains($ticket) && ($user->role->users->count() > 1));
+    }
+
+
 }

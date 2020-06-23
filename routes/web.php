@@ -62,3 +62,5 @@ Route::put('ticket/{id}/ticket/escalate', 'TicketController@escalate')
 
 Route::put('ticket/{id}/ticket/deescalate', 'TicketController@deescalate')
     ->name('ticket_deescalate');
+
+Route::put('/ticket/{id}/delegate', 'TicketController@delegate')->name('ticket_delegate');

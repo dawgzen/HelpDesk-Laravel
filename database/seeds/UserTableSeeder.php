@@ -35,7 +35,6 @@ class UserTableSeeder extends Seeder
                 "password" => $user[2],
                 "role_id" => $role_ids[$user[3]],
             ]
-
             );
         }
     }

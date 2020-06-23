@@ -9,6 +9,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use const http\Client\Curl\AUTH_ANY;
 
 class TicketController extends Controller
 {
@@ -70,7 +71,12 @@ class TicketController extends Controller
     {
         $ticket = Ticket::findOrFail($id);
         $this->authorize('show', $ticket);
-        return view('ticket.show', ['ticket' => $ticket]);
+        $stuff = [];
+        $stuff['ticket'] = $ticket;
+        if (Auth::user()->can('delegate', $ticket)){
+            $stuff['delegatable_users'] = Auth::user()->role->users->diff([Auth::user()]);
+        }
+        return view('ticket.show', $stuff);
     }
 
     public function claim($id)
@@ -120,6 +126,21 @@ class TicketController extends Controller
         $ticket->save();
         Auth::User()->assigned_tickets()->detach($ticket);
         return redirect()->back()->with('success', 'Ticket deescalated');
+    }
+
+    public function delegate ($id, Request $request){
+        $ticket = Ticket::findOrFail($id);
+        $this->authorize('delegate',$ticket);
+        $request->validate(
+        ['worker_id' => 'exists:users,id']
+        );
+        $delegated_user = User::find($request->worker_id);
+        if (Auth::user()->is($delegated_user) || Auth::user()->role->isNot($delegated_user->role)){
+            return redirect()->back->with('error_delegate' , 'Bad request');
+        }
+        Auth::user()->assigned_tickets()->detach($ticket);
+        $delegated_user->assigned_tickets()->attach($ticket);
+        return redirect()->back()->with('succes', 'ticket is succesfully delegated');
     }
 
     public function index_helpdesk()
