@@ -44,6 +44,7 @@
                                     </p>
                                 @endforelse
                             </div>
+                            @can('claim', $ticket)
                             <form action="{{ route('ticket_claim', ['id' => $ticket]) }}" method="POST">
                                 <button>
                                     Claim ticket
@@ -51,15 +52,30 @@
                                 @method('PUT')
                                 @csrf
                             </form>
+                            @endcan
 
-                            @can ('comment', $ticket)
-                                <form action="{{ route('ticket_close', ['id' => $ticket]) }}" method="POST">
+                            @can('close', $ticket)
+                            <form action="{{ route('ticket_close', ['id' => $ticket]) }}" method="POST">
+                                <button>
+                                    Close ticket
+                                </button>
+                                @method('PUT')
+                                @csrf
+                                @endcan
+                            </form>
+
+                                @can('free', $ticket)
+                                <form action="{{ route('ticket_free', ['id' => $ticket]) }}" method="POST">
                                     <button>
-                                        Close ticket
+                                        Free ticket
                                     </button>
                                     @method('PUT')
                                     @csrf
+                                    @endcan
                                 </form>
+                            @can ('comment', $ticket)
+
+
 
                                 <div class="card-footer">
                                     Create new comment

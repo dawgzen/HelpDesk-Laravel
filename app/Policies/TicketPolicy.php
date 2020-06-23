@@ -47,10 +47,19 @@ class TicketPolicy
     {
         return ($user->is($ticket->submitting_user) || $user->assigned_tickets->contains($ticket)) && $ticket->isOpen();
     }
+
     public function claim(User $user, Ticket $ticket) {
         return (
                 $user->role->name == Role::FIRSTLINE && $ticket->status->name == Status::FIRSTLINE
             ) || (
                 $user->role->name == Role::SECONDLINE && $ticket->status->name == Status::SECONDLINE);
+    }
+
+    public function free(User $user, Ticket $ticket) {
+        return
+            $user->assigned_tickets->contains($ticket) && (
+                $user->role->name == Role::FIRSTLINE && $ticket->status->name == Status::FIRSTLINE_ASSIGNED
+            ) || (
+                $user->role->name == Role::SECONDLINE && $ticket->status->name == Status::SECONDLINE_ASSIGNED);
     }
 }

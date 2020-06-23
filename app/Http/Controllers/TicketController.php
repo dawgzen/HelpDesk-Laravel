@@ -78,14 +78,29 @@ class TicketController extends Controller
         $ticket = Ticket::findOrFail($id);
         $this->authorize('claim', $ticket);
         if ($ticket->status->name == Status::FIRSTLINE) {
-            $status = Status::where('name', Status::FIRSTLINE)->first();
+            $status = Status::where('name', Status::FIRSTLINE_ASSIGNED)->first();
         }   else if ($ticket->status->name == Status::SECONDLINE) {
-            $status = Status::where('name', Status::SECONDLINE)->first();
+            $status = Status::where('name', Status::SECONDLINE_ASSIGNED)->first();
         }
         $ticket->status()->associate($status);
         $ticket->save();
         Auth::User()->assigned_tickets()->attach($ticket);
         return redirect()->back()->with('success', 'Ticket claimed');
+    }
+
+    public function free($id)
+    {
+        $ticket = Ticket::findOrFail($id);
+        $this->authorize('free', $ticket);
+        if ($ticket->status->name == Status::FIRSTLINE_ASSIGNED) {
+            $status = Status::where('name', Status::FIRSTLINE)->first();
+        }   else if ($ticket->status->name == Status::SECONDLINE_ASSIGNED) {
+            $status = Status::where('name', Status::SECONDLINE)->first();
+        }
+        $ticket->status()->associate($status);
+        $ticket->save();
+        Auth::User()->assigned_tickets()->detach($ticket);
+        return redirect()->back()->with('success', 'Ticket freed');
     }
 
 
