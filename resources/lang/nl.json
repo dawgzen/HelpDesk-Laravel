@@ -1,0 +1,13 @@
+{
+    "name" : "Naam",
+    "register": "Registreer",
+    "email" : "Email Adres",
+    "password": "Wachtwoord",
+    "confirm password" : "Herhaal wachtwoord",
+    "Create ticket" : "Creër ticket",
+    "Logout" : "Log uit",
+    "login" : "Log in",
+    "remember" : "Onthoud mij",
+    "passforgot": "Wachtwoord vergeten?",
+    "laravel" : "Welkom bij Dawgsens helpdesk"
+}

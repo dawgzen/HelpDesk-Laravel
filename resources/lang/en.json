@@ -1,0 +1,13 @@
+{
+    "name": "Name",
+    "register": "Register",
+    "email" : "Email Adress",
+    "password": "Password",
+    "confirm password" : "Confirm Password",
+    "Create ticket" : "Create Ticket",
+    "Logout" : "Log Out",
+    "remember" : "Remember me",
+    "login" : "Log in",
+    "passforgot": "Forgot password?",
+    "laravel" : "Welcome to Dawgsens helpdesk"
+}

@@ -36,17 +36,18 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
                     @auth
+
                         @can ('create', App\Ticket::class)
                             <li class="nav-item">
-                                <a href="{{ route('ticket_create') }}" class="nav-link">{{ __('Create ticket') }}</a>
+                                <a href="{{ route('ticket_create', app()->getLocale()) }}" class="nav-link">{{ __('Create ticket') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('ticket_index') }}">{{ __('Ticket') }}</a>
+                                <a class="nav-link" href="{{ route('ticket_index', app()->getLocale()) }}">{{ __('Ticket') }}</a>
                             </li>
                         @endcan
                         @can ('assign', App\Ticket::class)
                             <li class="nav-item">
-                                <a href="{{ route('ticket_index_helpdesk') }}"
+                                <a href="{{ route('ticket_index_helpdesk', app()->getLocale()) }}"
                                    class="nav-link">{{ __('Helpdesk index') }}</a>
                             </li>
                         @endcan
@@ -58,15 +59,22 @@
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
                     @guest
+                        <li class="nav item">
+                            <a href="{{ route(Route::currentRouteName(), 'en') }}" class="nav-link">EN</a>
+                        </li>
+                        <li class="nav item">
+                            <a href="{{ route(Route::currentRouteName(), 'nl') }}" class="nav-link">NL</a>
+                        </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a class="nav-link" href="{{ route('login', app()->getLocale()) }}">{{ __('Login') }}</a>
                         </li>
                         @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <a class="nav-link" href="{{ route('register', app()->getLocale()) }}">{{ __('Register') }}</a>
                             </li>
                         @endif
                     @else
+
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -74,13 +82,13 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                <a class="dropdown-item" href="{{ route('logout', app()->getLocale()) }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                <form id="logout-form" action="{{ route('logout', app()->getLocale()) }}" method="POST"
                                       style="display: none;">
                                     @csrf
                                 </form>

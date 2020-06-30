@@ -22,7 +22,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">
                                         @can ('show', $assigned_ticket)
-                                            <a href="{{ route('ticket_show', ['id' => $assigned_ticket]) }}">
+                                            <a href="{{ route('ticket_show', app()->getLocale(), ['id' => $assigned_ticket]) }}">
                                                 {{ $assigned_ticket->title }}
                                             </a>
                                         @else
@@ -64,7 +64,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">
                                         @can ('show', $unassigned_ticket)
-                                            <a href="{{ route('ticket_show', ['id' => $unassigned_ticket]) }}">
+                                            <a href="{{ route('ticket_show', app()->getLocale(), ['id' => $unassigned_ticket]) }}">
                                                 {{ $unassigned_ticket->title }}
                                             </a>
                                         @else
