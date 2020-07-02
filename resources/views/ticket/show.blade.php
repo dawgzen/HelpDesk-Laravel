@@ -95,12 +95,10 @@
                             @endcan
 
                             @can('delegate', $ticket)
-                                <form action="#" class="d-inline">
-                                    <button type="button" class="btn btn-primary"
-                                            data-toggle="modal" data-target="#delegateModal">
-                                        {{__('delegate')}}
-                                    </button>
-                                </form>
+                                <button type="button" class="btn btn-primary"
+                                        data-toggle="modal" data-target="#delegateModal">
+                                    {{__('delegate')}}
+                                </button>
                             @endcan
 
 
@@ -115,13 +113,10 @@
                                         <label for="comment"
                                                class="col-md-4 col-form-label text-md-right">{{ __('comment content') }}</label>
                                         <div class="col-md-6">
-                                    <textarea id="comment" type="text" class="form-control" name="contents">
-                                      {{ old('form')}}
-                                    </textarea>
+                                            <textarea id="comment" type="text" class="form-control"
+                                                      name="comment">{{ old('comment')}}</textarea>
                                             @error('comment')
-                                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                        </span>
+                                            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                                             @enderror
                                         </div>
                                     </div>

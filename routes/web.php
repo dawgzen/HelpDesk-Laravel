@@ -44,19 +44,19 @@ Route::get('/ticket/index_helpdesk', 'TicketController@index_helpdesk')
 Route::post('ticket/{id}/comment/save', 'CommentController@save')
     ->name('comment_save');
 
-Route::put('ticket/{id}/ticket/close', 'TicketController@close')
+Route::put('ticket/{id}/close', 'TicketController@close')
     ->name('ticket_close');
 
-Route::put('ticket/{id}/ticket/claim', 'TicketController@claim')
+Route::put('ticket/{id}/claim', 'TicketController@claim')
     ->name('ticket_claim');
 
-Route::put('ticket/{id}/ticket/free', 'TicketController@free')
+Route::put('ticket/{id}/free', 'TicketController@free')
     ->name('ticket_free');
 
-Route::put('ticket/{id}/ticket/escalate', 'TicketController@escalate')
+Route::put('ticket/{id}/escalate', 'TicketController@escalate')
     ->name('ticket_escalate');
 
-Route::put('ticket/{id}/ticket/deescalate', 'TicketController@deescalate')
+Route::put('ticket/{id}/deescalate', 'TicketController@deescalate')
     ->name('ticket_deescalate');
 
 Route::put('/ticket/{id}/delegate', 'TicketController@delegate')->name('ticket_delegate');

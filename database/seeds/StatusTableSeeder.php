@@ -16,9 +16,9 @@ class StatusTableSeeder extends Seeder
     {
         $status =[
             [Status::FIRSTLINE, "Ticket waiting for assigning"] ,
-            [Status::FIRSTLINE_ASSIGNED, "Ticket assigned"] ,
+            [Status::FIRSTLINE_ASSIGNED, "Ticket assigned to firstline"] ,
             [Status::SECONDLINE, "Ticket waiting for assigning"] ,
-            [Status::SECONDLINE_ASSIGNED, "Ticket assigned"] ,
+            [Status::SECONDLINE_ASSIGNED, "Ticket assigned to secondline"] ,
             [Status::DONE, "Ticket handled"] ,
         ];
 
