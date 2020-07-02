@@ -54,10 +54,9 @@ class TicketPolicy
     public function free(User $user, Ticket $ticket)
     {
         return
-            $user->assigned_tickets->contains($ticket) && (
-                $user->role->name == Role::FIRSTLINE && $ticket->status->name == Status::FIRSTLINE_ASSIGNED
-            ) || (
-                $user->role->name == Role::SECONDLINE && $ticket->status->name == Status::SECONDLINE_ASSIGNED);
+            ($user->assigned_tickets->contains($ticket) && ($user->role->name == Role::FIRSTLINE && $ticket->status->name == Status::FIRSTLINE_ASSIGNED))
+            ||
+            ($user->assigned_tickets->contains($ticket) && ($user->role->name == Role::SECONDLINE && $ticket->status->name == Status::SECONDLINE_ASSIGNED));
     }
 
     public function escalate(User $user, Ticket $ticket)
@@ -66,8 +65,7 @@ class TicketPolicy
                 $user->role->name == Role::FIRSTLINE && $ticket->status->name == Status::FIRSTLINE_ASSIGNED);
     }
 
-    public function deescalate(User $user, Ticket $ticket)
-    {
+    public function deescalate (User $user, Ticket $ticket) {
         return $user->assigned_tickets->contains($ticket) && (
                 $user->role->name == Role::SECONDLINE && $ticket->status->name == Status::SECONDLINE_ASSIGNED);
     }

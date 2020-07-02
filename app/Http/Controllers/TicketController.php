@@ -73,7 +73,7 @@ class TicketController extends Controller
         $this->authorize('show', $ticket);
         $stuff = [];
         $stuff['ticket'] = $ticket;
-        if (Auth::user()->can('delegate', $ticket)){
+        if (Auth::user()->can('delegate', $ticket)) {
             $stuff['delegatable_users'] = Auth::user()->role->users->diff([Auth::user()]);
         }
         return view('ticket.show', $stuff);
@@ -109,7 +109,8 @@ class TicketController extends Controller
         return redirect()->back()->with('success', 'Ticket freed');
     }
 
-    public function escalate($id){
+    public function escalate($id)
+    {
         $ticket = Ticket::findOrFail($id);
         $this->authorize('escalate', $ticket);
         $status = Status::where('name', Status::SECONDLINE)->first();
@@ -118,9 +119,10 @@ class TicketController extends Controller
         return redirect()->back()->with('success', 'Ticket escalated');
     }
 
-    public function deescalate($id){
+    public function deescalate($id)
+    {
         $ticket = Ticket::findOrFail($id);
-        $this->authorize('escalate', $ticket);
+        $this->authorize('deescalate', $ticket);
         $status = Status::where('name', Status::FIRSTLINE_ASSIGNED)->first();
         $ticket->status()->associate($status);
         $ticket->save();
@@ -128,15 +130,16 @@ class TicketController extends Controller
         return redirect()->back()->with('success', 'Ticket deescalated');
     }
 
-    public function delegate ($id, Request $request){
+    public function delegate($id, Request $request)
+    {
         $ticket = Ticket::findOrFail($id);
-        $this->authorize('delegate',$ticket);
+        $this->authorize('delegate', $ticket);
         $request->validate(
-        ['worker_id' => 'exists:users,id']
+            ['worker_id' => 'exists:users,id']
         );
         $delegated_user = User::find($request->worker_id);
-        if (Auth::user()->is($delegated_user) || Auth::user()->role->isNot($delegated_user->role)){
-            return redirect()->back->with('error_delegate' , 'Bad request');
+        if (Auth::user()->is($delegated_user) || Auth::user()->role->isNot($delegated_user->role)) {
+            return redirect()->back->with('error_delegate', 'Bad request');
         }
         Auth::user()->assigned_tickets()->detach($ticket);
         $delegated_user->assigned_tickets()->attach($ticket);
