@@ -7,11 +7,6 @@
                 <div class="card">
                     <div class="card-header">{{ __('assigned') }}</div>
                     <div class="card-body">
-                        @if (session('success'))
-                            <div class="alert alert-succes">
-                                {{ session('success') }}
-                            </div>
-                        @endif
                         @forelse($assigned_tickets as $assigned_ticket)
                             <div class="card mb-3">
                                 <div class="card-header">
