@@ -12,9 +12,7 @@
 */
 
 Route::redirect('/', '/nl');
-
-Route::group(['prefix' => '{language}'], function () {
-
+Route::get('lang/{locale}', 'LocalizationController@index');
     Route::get('/', function () {
         return view('welcome');
     });
@@ -62,4 +60,3 @@ Route::group(['prefix' => '{language}'], function () {
 
     Route::put('/ticket/{id}/delegate', 'TicketController@delegate')->name('ticket_delegate');
 
-});

@@ -39,15 +39,15 @@
 
                         @can ('create', App\Ticket::class)
                             <li class="nav-item">
-                                <a href="{{ route('ticket_create', app()->getLocale()) }}" class="nav-link">{{ __('Create ticket') }}</a>
+                                <a href="{{ route('ticket_create') }}" class="nav-link">{{ __('Create ticket') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('ticket_index', app()->getLocale()) }}">{{ __('Ticket') }}</a>
+                                <a class="nav-link" href="{{ route('ticket_index') }}">{{ __('tickets') }}</a>
                             </li>
                         @endcan
                         @can ('assign', App\Ticket::class)
                             <li class="nav-item">
-                                <a href="{{ route('ticket_index_helpdesk', app()->getLocale()) }}"
+                                <a href="{{ route('ticket_index_helpdesk') }}"
                                    class="nav-link">{{ __('Helpdesk index') }}</a>
                             </li>
                         @endcan
@@ -58,19 +58,34 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
+                    @php $locale = session()->get('locale'); @endphp
+                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            @switch($locale)
+                                @case('nl')
+                                <img src="{{asset('img/nl.png')}}" width="30px" height="20x"> Nederlands
+                                @break
+                                @case('en')
+                                <img src="{{asset('img/en.png')}}" width="30px" height="20x"> English
+                                @break
+                                @default
+                                <img src="{{asset('img/en.png')}}" width="30px" height="20x"> English
+                            @endswitch
+                            <span class="caret"></span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="lang/en"><img src="{{asset('img/en.png')}}" width="30px" height="20x"> English</a>
+                            <a class="dropdown-item" href="lang/nl"><img src="{{asset('img/nl.png')}}" width="30px" height="20x"> Nederlands</a>
+                        </div>
+                    </li>
                     @guest
-                        <li class="nav item">
-                            <a href="{{ route(Route::currentRouteName(), 'en') }}" class="nav-link">EN</a>
-                        </li>
-                        <li class="nav item">
-                            <a href="{{ route(Route::currentRouteName(), 'nl') }}" class="nav-link">NL</a>
-                        </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login', app()->getLocale()) }}">{{ __('Login') }}</a>
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
                         @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register', app()->getLocale()) }}">{{ __('Register') }}</a>
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
                         @endif
                     @else
@@ -82,13 +97,13 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout', app()->getLocale()) }}"
+                                <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
 
-                                <form id="logout-form" action="{{ route('logout', app()->getLocale()) }}" method="POST"
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                       style="display: none;">
                                     @csrf
                                 </form>
@@ -99,7 +114,6 @@
             </div>
         </div>
     </nav>
-
     <main class="py-4">
         @yield('content')
     </main>

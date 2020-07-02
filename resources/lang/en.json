@@ -9,5 +9,10 @@
     "remember" : "Remember me",
     "login" : "Log in",
     "passforgot": "Forgot password?",
-    "laravel" : "Welcome to Dawgsens helpdesk"
+    "laravel" : "Welcome to Dawgsens helpdesk",
+    "loggedIn": "You are logged in!",
+    "title" : "title",
+    "description": "description",
+    "saveTicket" : "Save Ticket",
+    "tickets" : "Tickets"
 }

@@ -45,7 +45,7 @@
                                 @endforelse
                             </div>
                             @can('claim', $ticket)
-                            <form method="POST" action="{{ route('ticket_claim', app()->getLocale(), ['id' => $ticket]) }}">
+                            <form method="POST" action="{{ route('ticket_claim',  ['id' => $ticket]) }}">
                                 <button>
                                     Claim ticket
                                 </button>
@@ -55,7 +55,7 @@
                             @endcan
 
                             @can('close', $ticket)
-                            <form method="POST" action="{{ route('ticket_close', app()->getLocale(), ['id' => $ticket]) }}" >
+                            <form method="POST" action="{{ route('ticket_close',  ['id' => $ticket]) }}" >
                                 <button>
                                     Close ticket
                                 </button>
@@ -65,7 +65,7 @@
                             @endcan
 
                                 @can('free', $ticket)
-                                <form method="POST" action="{{ route('ticket_free', app()->getLocale(), ['id' => $ticket]) }}">
+                                <form method="POST" action="{{ route('ticket_free', ['id' => $ticket]) }}">
                                     <button>
                                         Free ticket
                                     </button>
@@ -75,7 +75,7 @@
                                 @endcan
 
                             @can('escalate', $ticket)
-                                <form  method="POST" action="{{ route('ticket_escalate', app()->getLocale(), ['id' => $ticket]) }}">
+                                <form  method="POST" action="{{ route('ticket_escalate', ['id' => $ticket]) }}">
                                     <button>
                                         escalate ticket
                                     </button>
@@ -85,7 +85,7 @@
                             @endcan
 
                             @can('deescalate', $ticket)
-                                <form method="POST" action="{{ route('ticket_deescalate', app()->getLocale(), ['id' => $ticket]) }}">
+                                <form method="POST" action="{{ route('ticket_deescalate', ['id' => $ticket]) }}">
                                     <button>
                                         deescalate ticket
                                     </button>
@@ -109,7 +109,7 @@
                                 <div class="card-footer">
                                     Create new comment
                                 </div>
-                                <form method="POST" id="form" action="{{ route('comment_save', app()->getLocale(), ['id' => $ticket]) }}">
+                                <form method="POST" id="form" action="{{ route('comment_save', ['id' => $ticket]) }}">
                                     @csrf
                                     <div class="form-group row">
                                         <label for="comment"
@@ -156,7 +156,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                            <form method="POST" id="form" action="{{ route('ticket_delegate', app()->getLocale(), $ticket) }}">
+                            <form method="POST" id="form" action="{{ route('ticket_delegate', $ticket) }}">
                             @csrf
                             @method('PUT')
                             <select name="worker_id" id="worker_id">

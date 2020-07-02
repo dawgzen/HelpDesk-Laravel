@@ -8,7 +8,7 @@
                     <div class="card-header">{{ __('Ticket') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('ticket_save', app()->getLocale()) }}">
+                        <form method="POST" action="{{ route('ticket_save') }}">
                             @csrf
 
                             <div class="form-group row">
@@ -40,7 +40,7 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('Ticket') }}
+                                        {{ __('saveTicket') }}
                                     </button>
                                 </div>
                             </div>

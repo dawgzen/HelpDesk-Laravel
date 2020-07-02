@@ -22,7 +22,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">
                                         @can ('show', $ticket)
-                                            <a href="{{ route('ticket_show', app()->getLocale(), ['id' => $ticket]) }}">
+                                            <a href="{{ route('ticket_show', ['id' => $ticket]) }}">
                                                 {{ $ticket->title }}
                                             </a>
                                         @else

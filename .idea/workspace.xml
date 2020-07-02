@@ -2,20 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="381c3ab9-7954-423c-b166-933aa7ab506d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/lang/en.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/en/text.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/nl.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/en.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/nl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/en/app.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/nl/app.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/SetLanguage.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/auth.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/pagination.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/passwords.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/text.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/validation.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/nl.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/nl.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/ticket/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ticket/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/ticket/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ticket/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/ticket/index_helpdesk.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ticket/index_helpdesk.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/ticket/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ticket/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -141,7 +150,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\php\Helpdesk\helpdesk\public" />
+      <recent name="C:\xampp\htdocs\php\Helpdesk\helpdesk\resources\img" />
       <recent name="C:\xampp\htdocs\php\Helpdesk\helpdesk\resources\lang" />
+      <recent name="C:\xampp\htdocs\php\Helpdesk\helpdesk\resources\lang\nl" />
+      <recent name="C:\xampp\htdocs\php\Helpdesk\helpdesk\resources\lang\en" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -202,7 +215,10 @@
       <workItem from="1592915545193" duration="1095000" />
       <workItem from="1592994755139" duration="618000" />
       <workItem from="1592996962121" duration="829000" />
-      <workItem from="1593526377143" duration="6075000" />
+      <workItem from="1593526377143" duration="6370000" />
+      <workItem from="1593618660451" duration="3743000" />
+      <workItem from="1593679878034" duration="17000" />
+      <workItem from="1593704999744" duration="4976000" />
     </task>
     <servers />
   </component>

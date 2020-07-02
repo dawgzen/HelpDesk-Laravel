@@ -9,5 +9,10 @@
     "login" : "Log in",
     "remember" : "Onthoud mij",
     "passforgot": "Wachtwoord vergeten?",
-    "laravel" : "Welkom bij Dawgsens helpdesk"
+    "laravel" : "Welkom bij Dawgsens helpdesk",
+    "loggedIn": "Je bent ingelogd!",
+    "title" : "titel",
+    "description": "Beschrijving",
+    "saveTicket" : "Sla Ticket op",
+    "tickets" : "Tickets"
 }
