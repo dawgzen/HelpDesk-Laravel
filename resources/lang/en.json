@@ -14,5 +14,19 @@
     "title" : "title",
     "description": "description",
     "saveTicket" : "Save Ticket",
-    "tickets" : "Tickets"
-}
+    "tickets" : "Tickets",
+    "assigned" : "Assigned Tickets",
+    "unassigned" : "Unassigned Tickets",
+    "cantComment" : "You cant comment on this boyo",
+    "noComment" : "No comments yet",
+    "claim" : "Claim Ticket",
+    "close" : "Close Ticket",
+    "free"  : "Free Ticket",
+    "escalate" : "Escalate Ticket",
+    "deescalate": "Deescalate Ticket",
+    "delegate" : "Delegate Ticket",
+    "comment" : "Create new Comment",
+    "SaveComment" : "Save Comment"
+
+
+ }

@@ -40,14 +40,14 @@
                                     </p>
                                 @empty
                                     <p class="card-text">
-                                        No comments yet
+                                        {{ __('noComment') }}
                                     </p>
                                 @endforelse
                             </div>
                             @can('claim', $ticket)
                             <form method="POST" action="{{ route('ticket_claim',  ['id' => $ticket]) }}">
                                 <button>
-                                    Claim ticket
+                                    {{ __('claim') }}
                                 </button>
                                 @method('PUT')
                                 @csrf
@@ -57,7 +57,7 @@
                             @can('close', $ticket)
                             <form method="POST" action="{{ route('ticket_close',  ['id' => $ticket]) }}" >
                                 <button>
-                                    Close ticket
+                                    {{ __('close') }}
                                 </button>
                                 @method('PUT')
                                 @csrf
@@ -67,7 +67,7 @@
                                 @can('free', $ticket)
                                 <form method="POST" action="{{ route('ticket_free', ['id' => $ticket]) }}">
                                     <button>
-                                        Free ticket
+                                        {{ __('free') }}
                                     </button>
                                     @method('PUT')
                                     @csrf
@@ -77,7 +77,7 @@
                             @can('escalate', $ticket)
                                 <form  method="POST" action="{{ route('ticket_escalate', ['id' => $ticket]) }}">
                                     <button>
-                                        escalate ticket
+                                        {{ __('escalate') }}
                                     </button>
                                     @method('PUT')
                                     @csrf
@@ -87,7 +87,7 @@
                             @can('deescalate', $ticket)
                                 <form method="POST" action="{{ route('ticket_deescalate', ['id' => $ticket]) }}">
                                     <button>
-                                        deescalate ticket
+                                        {{ __('deescalate') }}
                                     </button>
                                     @method('PUT')
                                     @csrf
@@ -98,7 +98,7 @@
                                 <form action="#" class="d-inline">
                                     <button type="button" class="btn btn-primary"
                                     data-toggle="modal" data-target="#delegateModal">
-                                        {{__('Delegate')}}
+                                        {{__('delegate')}}
                                     </button>
                                 </form>
                             @endcan
@@ -107,7 +107,7 @@
                             @can ('comment', $ticket)
 
                                 <div class="card-footer">
-                                    Create new comment
+                                    {{ __('comment') }}
                                 </div>
                                 <form method="POST" id="form" action="{{ route('comment_save', ['id' => $ticket]) }}">
                                     @csrf
@@ -128,14 +128,14 @@
                                     <div class="form-group row mb-0">
                                         <div class="col-md-6 offset-md-4">
                                             <button type="submit" class="btn btn-primary">
-                                                {{ __('Save Comment') }}
+                                                {{ __('SaveComment') }}
                                             </button>
                                         </div>
                                     </div>
                                 </form>
                             @else
                                 <div class="col-md-6 offset-md-4">
-                                    <p>You cant comment on this boyo</p>
+                                    <p> {{ __('cantComment') }}</p>
                                 </div>
                             @endcan
                         </div>

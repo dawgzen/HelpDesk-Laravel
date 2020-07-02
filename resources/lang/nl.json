@@ -14,5 +14,18 @@
     "title" : "titel",
     "description": "Beschrijving",
     "saveTicket" : "Sla Ticket op",
-    "tickets" : "Tickets"
+    "tickets" : "Tickets",
+    "assigned" : "Doorverwezen tickets",
+    "unassigned" : "Wachtende Tickets",
+    "cantComment" : "Sorry maat, je mag niet reageren",
+    "noComment" : "Nog geen reacties",
+    "claim" : "Claim Ticket",
+    "close" : "Sluit Ticket",
+    "free" : "Bevrijd Ticket",
+    "escalate" : "Escaleer Ticket",
+    "deescalate": "DeEscaleer Ticket",
+    "delegate" : "Delegeer Ticket",
+    "comment" : "Maak nieuwe Comment",
+    "SaveComment" : "Sla reactie op!"
+
 }
