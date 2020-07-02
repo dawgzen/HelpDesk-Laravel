@@ -34,7 +34,7 @@
                                 </div>
                             </div>
                         @empty
-                            {{ __('No tickets available...') }}
+                            {{ __('noTickets') }}
                         @endforelse
                     </div>
                 </div>
@@ -75,7 +75,7 @@
                                 </div>
                             </div>
                         @empty
-                            {{ __('No tickets available...') }}
+                            {{ __('noTickets') }}
                         @endforelse
                     </div>
                 </div>

@@ -26,7 +26,8 @@
     "deescalate": "Deescalate Ticket",
     "delegate" : "Delegate Ticket",
     "comment" : "Create new Comment",
-    "SaveComment" : "Save Comment"
+    "SaveComment" : "Save Comment",
+    "noTickets" : "No tickets available"
 
 
  }

@@ -26,5 +26,6 @@
     "deescalate": "DeEscaleer Ticket",
     "delegate": "Delegeer Ticket",
     "comment": "Maak nieuwe Comment",
-    "SaveComment": "Sla reactie op!"
+    "SaveComment": "Sla reactie op!",
+    "noTickets" : "Geen tickets beschikbaar"
 }

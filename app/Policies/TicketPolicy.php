@@ -65,7 +65,8 @@ class TicketPolicy
                 $user->role->name == Role::FIRSTLINE && $ticket->status->name == Status::FIRSTLINE_ASSIGNED);
     }
 
-    public function deescalate (User $user, Ticket $ticket) {
+    public function deescalate(User $user, Ticket $ticket)
+    {
         return $user->assigned_tickets->contains($ticket) && (
                 $user->role->name == Role::SECONDLINE && $ticket->status->name == Status::SECONDLINE_ASSIGNED);
     }
